@@ -27,7 +27,10 @@ if (count AIS_MEDEVAC_STATIONS > 0) then {
 
 _is_able_to_do = switch (AIS_MEDICAL_EDUCATION) do {
 	case (0) : {true};
-	case (1) : {(items player) find "FirstAidKit" > -1 || {(items player) find "Medikit" > -1}};
+	case (1) : {
+		private _items = items player;
+		AIS_ALL_HEALING_ITEMS findIf {_x in _items} > -1
+	};
 	case (2) : {player call AIS_System_fnc_isMedic};
 	default {true};
 };

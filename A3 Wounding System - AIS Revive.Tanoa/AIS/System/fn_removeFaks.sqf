@@ -25,31 +25,31 @@ _numMedi = _medK;
 
 // Faks from the uniform
 {
-	if (_x == "FirstAidKit") then {
+	if (_x in AIS_FAK_ITEMS) then {
 		_numFakUniform = _numFakUniform + 1;
-		_unit removeItemFromUniform "FirstAidKit";
+		_unit removeItemFromUniform _x;
 	};
 	nil
 } count (uniformItems _unit);
 
 // Faks from the vest
 {
-	if (_x == "FirstAidKit") then {
+	if (_x in AIS_FAK_ITEMS) then {
 		_numFaksVest = _numFaksVest + 1;
-		_unit removeItemFromVest "FirstAidKit";
+		_unit removeItemFromVest _x;
 	};
 	nil
 } count (vestItems _unit);
 
 // Faks and Medikits from the backpack. Kits can only be in backpack, so we don't search for them anywhere else
 {
-	if (_x == "FirstAidKit") then {
+	if (_x in AIS_FAK_ITEMS) then {
 		_numFaksBackpack = _numFaksBackpack + 1;
-		_unit removeItemFromBackpack "FirstAidKit";
+		_unit removeItemFromBackpack _x;
 	};
-	if (_x == "Medikit") then {
+	if (_x in AIS_MEDIKIT_ITEMS) then {
 		_numMedi = _numMedi + 1;
-		_unit removeItemFromBackpack "Medikit";
+		_unit removeItemFromBackpack _x;
 	};
 	nil
 } count (backpackItems _unit);

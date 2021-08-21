@@ -17,5 +17,17 @@ if (!isNil "AIS_Core_eachFrameHandlerId") then {
 	removeMissionEventHandler ["EachFrame", AIS_Core_eachFrameHandlerId];
 };
 
+// Array of FirstAidKit classnames
+AIS_FAK_ITEMS = "true" configClasses (configFile >> "CfgWeapons") select {getNumber (_x >> "ItemInfo" >> "type") == 401} apply {
+	configName _x
+};
+// Array of Medikit classnames
+AIS_MEDIKIT_ITEMS = "true" configClasses (configFile >> "CfgWeapons") select {getNumber (_x >> "ItemInfo" >> "type") == 619} apply {
+	configName _x
+};
+
+AIS_ALL_HEALING_ITEMS = AIS_FAK_ITEMS + AIS_MEDIKIT_ITEMS;
+
+
 call AIS_Core_fnc_initEvents;
 AIS_Core_Interaction_Actions = [];
