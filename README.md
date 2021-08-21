@@ -6,3 +6,10 @@ This repository contains files for [A3 Wounding System (AIS)](https://forums.boh
 ## Notable changes
 
 - Added compatiblity for CDLC/custom healing items
+
+
+### Warning
+
+Code of this OLD revive system is quite bad, it uses `removeAllEventHandlers` and `removeAllActions` which can break your scripts and compatiblity with any mod.
+
+Use at your own risk.
